@@ -2,22 +2,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pingpong-deployment-2
+  name: pingpong-deployment-test
   labels:
-    app: pingpongapps
+    app: pingpongtest
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: pingpongapps
+      app: pingpongtest
   template:
     metadata:
       labels:
-        app: pingpongapps
+        app: pingpongtest
     spec:
       containers:
-      - name: pingpong2
-        image: midnighthelix/my-private-repo:1.0
+      - name: pingpongtest
+        image: midnighthelix/my-private-repo:1.1
         ports: 
         - containerPort: 8080
       imagePullSecrets:

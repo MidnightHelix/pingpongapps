@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pingpong-deployment
+  labels:
+    app: pingpongapps
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pingpongapps
+  template:
+    metadata:
+      labels:
+        app: pingpongapps
+    spec:
+      containers:
+      - name: pingpong
+        image: midnighthelix/my-private-repo:1.0
+        ports: 
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: regcred
